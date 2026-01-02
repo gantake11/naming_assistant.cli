@@ -1,0 +1,17 @@
+{
+	"project_name": "naming-assistant-cli",
+	"conventions": {
+		"class": "UpperPascalCase",
+		"variable": "lowerCamelCase",
+		"method": "lowerCamelCase"
+	},
+	"history": [
+		{
+			"name" : 
+			"context": "User Authentication",
+			"original_intent": "user login function",
+			"assigned_name": "authenticateUser",
+			"type": "method"
+		}
+	]
+}
