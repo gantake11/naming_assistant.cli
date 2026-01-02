@@ -1,1 +1,22 @@
-/target/
+# --- Maven ---
+target/
+
+# --- Eclipse ---
+.settings/
+.project
+.classpath
+.factorypath
+
+# --- IntelliJ IDEA (将来使う可能性があるため) ---
+.idea/
+*.iml
+
+# --- OS temporary files ---
+*.DS_Store
+Thumbs.db
+
+# --- Log files ---
+*.log
+
+# --- Sensitive data (もしあれば) ---
+# application-local.properties
