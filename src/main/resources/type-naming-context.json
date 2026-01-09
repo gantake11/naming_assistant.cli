@@ -33,14 +33,14 @@
 		"Interface": [
 			{
 				"name": "名前",
-				"scope": "スコープ",
+				"package": "パッケージ",
 				"timestamp": "追加日"
 			}
 		],
 		"Class": [
 			{
 				"name": "名前",
-				"scope": "スコープ",
+				"package": "パッケージ",
 				"timestamp": "追加日"
 			}
 		],
@@ -48,21 +48,21 @@
 			{
 				"name": "名前",
 				"type": "型",
-				"scope": "スコープ",
+				"package": "パッケージ",
 				"timestamp": "追加日"
 			}
 		],
 		"Constant": [
 			{
 				"name": "名前",
-				"scope": "スコープ",
+				"package": "パッケージ",
 				"timestamp": "追加日"
 			}
 		],
 		"Method": [
 			{
 				"name": "名前",
-				"scope": "スコープ",
+				"package": "パッケージ",
 				"timestamp": "追加日"
 			}
 		]

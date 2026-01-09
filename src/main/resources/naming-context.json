@@ -17,39 +17,39 @@
 		"Class": [
 			{
 				"name": "NamingToolApp",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			},
 			{
 				"name": "NamingInput",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			},
 			{
 				"name": "GeminiClient",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "2051228"
 			}
 		],
 		"Variable": [
 			{
 				"name": "br",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			},
 			{
 				"name": "ni",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			},
 			{
 				"name": "projectName",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			},
 			{
 				"name": "userChoice",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			}
 		],
@@ -61,17 +61,17 @@
 		"Method": [
 			{
 				"name": "main",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			},
 			{
 				"name": "namingInput",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "20260101"
 			},
 			{
 				"name": "geminiAPI",
-				"scope": "me.naming_assistant.naming_assistant.cli",
+				"package": "me.naming_assistant.naming_assistant.cli",
 				"timestamp": "2051228"
 			}
 		]
