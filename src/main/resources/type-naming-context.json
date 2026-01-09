@@ -1,0 +1,77 @@
+{
+	"project_name": {
+		"comment": "プロジェクト名"
+	},
+	"conventions": {
+		"Interface": [
+			"インタフェース",
+			"PascalCase",
+			"パスカルケース"
+		],
+		"Class": [
+			"クラス",
+			"PascalCase",
+			"パスカルケース"
+		],
+		"Variable": [
+			"変数",
+			"camelCase",
+			"キャメルケース"
+		],
+		"Constant": [
+			"定数",
+			"UPPER_SNAKE_CASE",
+			"アッパースネークケース"
+		],
+		"Method": [
+			"メソッド",
+			"camelCase",
+			"キャメルケース"
+		]
+	},
+	"history": {
+		"Interface": [
+			{
+				"name": "名前",
+				"scope": "スコープ",
+				"timestamp": "追加日"
+			}
+		],
+		"Class": [
+			{
+				"name": "名前",
+				"access": "アクセス修飾子",
+				"scope": "スコープ",
+				"timestamp": "追加日"
+			}
+		],
+		"Variable": [
+			{
+				"name": "名前",
+				"access": "アクセス修飾子",
+				"type": "型",
+				"scope": "スコープ",
+				"timestamp": "追加日"
+			}
+		],
+		"Constant": [
+			{
+				"name": "名前",
+				"access": "アクセス修飾子",
+				"type": "型",
+				"scope": "スコープ",
+				"timestamp": "追加日"
+			}
+		],
+		"Method": [
+			{
+				"name": "名前",
+				"access": "アクセス修飾子",
+				"parameter": "引数",
+				"return": "戻り値",
+				"scope": "スコープ",
+				"timestamp": "追加日"
+			}
+		]
+	}
+}

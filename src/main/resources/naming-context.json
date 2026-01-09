@@ -1,17 +1,99 @@
 {
 	"project_name": "naming-assistant-cli",
+	"language": "java",
 	"conventions": {
-		"class": "UpperPascalCase",
-		"variable": "lowerCamelCase",
-		"method": "lowerCamelCase"
+		"Interface": "PascalCase",
+		"Class": "PascalCase",
+		"Variable": "camelCase",
+		"Constant": "UPPER_SNAKE_CASE",
+		"Method": "camelCase"
 	},
-	"history": [
-		{
-			"name" : 
-			"context": "User Authentication",
-			"original_intent": "user login function",
-			"assigned_name": "authenticateUser",
-			"type": "method"
-		}
-	]
+	"history": {
+		"Interface": [
+			{
+				
+			}
+		],
+		"Class": [
+			{
+				"name": "NamingToolApp",
+				"access": "public",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			},
+			{
+				"name": "NamingInput",
+				"access": "default",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			},
+			{
+				"name": "GeminiClient",
+				"access": "default",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "2051228"
+			}
+		],
+		"Variable": [
+			{
+				"name": "br",
+				"access": "local",
+				"type": "BufferedReader",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			},
+			{
+				"name": "ni",
+				"access": "local",
+				"type": "NamingInput",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			},
+			{
+				"name": "projectName",
+				"access": "local",
+				"type": "String",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			},
+			{
+				"name": "userChoice",
+				"access": "local",
+				"type": "int",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			}
+		],
+		"Constant": [
+			{
+				
+			}
+		],
+		"Method": [
+			{
+				"name": "main",
+				"access": "public static",
+				"parameter": "String[] args",
+				"return": "void",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			},
+			{
+				"name": "namingInput",
+				"access": "default",
+				"parameter": "String programName",
+				"return": "void",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "20260101"
+			},
+			{
+				"name": "geminiAPI",
+				"access": "default",
+				"parameter": "String target, String content",
+				"return": "String",
+				"scope": "me.naming_assistant.naming_assistant.cli",
+				"timestamp": "2051228"
+			}
+		]
+	}
 }
