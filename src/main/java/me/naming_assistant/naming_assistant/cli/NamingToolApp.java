@@ -15,29 +15,37 @@ public class NamingToolApp {
 
 			System.out.println("今回のプロジェクト名を教えてください。");
 			System.out.print("プロジェクト名：");
-			String programName = br.readLine();
+			String projectName = br.readLine();
 
-			System.out.println("やりたいことを選んでください");
-			System.out.println("1：APIを利用して命名する");
-			System.out.println("2：プログラムを読み込み、名前を抽出する");
-			System.out.println("3：このツールのjsonファイルを読み込む");
-
-			int todo = Integer.parseInt(br.readLine());
-
-			switch(todo) {
-				case 1: 
-					ni.namingInput(programName);
-					break;
-				case 2:
-					System.out.println("この処理は未実装です。");
-					break;
-				case 3:
-					System.out.println("この処理は未実装です。");
-					break;
-				default:
-					System.out.println("1か2か3を入力してください");
-					break;
-				
+			while(true) {
+				System.out.println("やりたいことを選んでください");
+				System.out.println("1：APIを利用して命名する");
+				System.out.println("2：プログラムを読み込み、名前を抽出する");
+				System.out.println("3：このツールのjsonファイルを読み込む");
+				System.out.println("4：終了");
+				System.out.print("やりたいこと：");
+	
+				int userChoice = Integer.parseInt(br.readLine());
+	
+				switch(userChoice) {
+					case 1: 
+						System.out.println("APIを利用して命名する");
+						ni.namingInput(projectName);
+						break;
+					case 2:
+						System.out.println("この処理は未実装です。");
+						break;
+					case 3:
+						System.out.println("この処理は未実装です。");
+						break;
+					case 4:
+						System.out.println("このツールを終了します。");
+						System.exit(0);
+					default:
+						System.out.println("1か2か3を入力してください");
+						break;
+					
+				}
 			}
 
 		} catch (Exception e) {

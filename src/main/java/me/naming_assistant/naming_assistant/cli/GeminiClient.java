@@ -3,8 +3,8 @@ package me.naming_assistant.naming_assistant.cli;
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
 
-public class GeminiClient {
-	public String geminiAPI(String target, String content) {
+class GeminiClient {
+	String geminiAPI(String target, String content) {
 		String targetLanguage = "Java"; // ファイル拡張子から判定
 		//  String userDescription = user[1];
 		//  List<String> existingNames = Arrays.asList("email", "validate", "checkInput"); // ファイルから抽出したもの

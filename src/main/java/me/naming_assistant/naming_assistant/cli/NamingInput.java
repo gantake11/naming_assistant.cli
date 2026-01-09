@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class NamingInput {
+class NamingInput {
     void namingInput(String programName) {
         // try-with-resources で BufferedReader を確実に閉じる
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
