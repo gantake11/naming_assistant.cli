@@ -8,7 +8,7 @@
 		"Constant": "UPPER_SNAKE_CASE",
 		"Method": "camelCase"
 	},
-	"history": {
+	"histories": {
 		"Interface": [
 		
 		],
