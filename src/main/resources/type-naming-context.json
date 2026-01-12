@@ -34,6 +34,7 @@
 			{
 				"name": "名前",
 				"package": "パッケージ",
+				"description": "処理内容",
 				"timestamp": "追加日"
 			}
 		],
@@ -41,6 +42,7 @@
 			{
 				"name": "名前",
 				"package": "パッケージ",
+				"description": "処理内容",
 				"timestamp": "追加日"
 			}
 		],
@@ -49,6 +51,7 @@
 				"name": "名前",
 				"type": "型",
 				"package": "パッケージ",
+				"description": "処理内容",
 				"timestamp": "追加日"
 			}
 		],
@@ -56,6 +59,7 @@
 			{
 				"name": "名前",
 				"package": "パッケージ",
+				"description": "処理内容",
 				"timestamp": "追加日"
 			}
 		],
@@ -63,6 +67,7 @@
 			{
 				"name": "名前",
 				"package": "パッケージ",
+				"description": "処理内容",
 				"timestamp": "追加日"
 			}
 		]
