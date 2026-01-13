@@ -17,19 +17,19 @@
 				"name": "NamingToolApp",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "命名支援ツールのメインクラス。ユーザーに何をやるか選択させる。",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			},
 			{
 				"name": "NamingInput",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "GeminのAPIに送るプロンプトのために必要な情報をユーザーに聞く",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			},
 			{
 				"name": "GeminiClient",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "GeminiのAPIに作るプロンプトを作り、送る",
-				"timestamp": "2051228"
+				"timestamp": "2025-12-28"
 			}
 		],
 		"Variable": [
@@ -37,25 +37,25 @@
 				"name": "br",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "ユーザーの入力を受けるBufferedReader",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			},
 			{
 				"name": "ni",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "NamingInputクラスのインスタンス",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			},
 			{
 				"name": "projectName",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "ユーザーが入力したプロジェクト名",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			},
 			{
 				"name": "userChoice",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "命名支援ツールでできることからユーザーが選んだもの",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			}
 		],
 		"Constant": [
@@ -66,19 +66,19 @@
 				"name": "main",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "命名支援ツールのメインメソッド",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			},
 			{
 				"name": "namingInput",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "GeminのAPIに送るプロンプトのために必要な情報をユーザーに聞く",
-				"timestamp": "20260101"
+				"timestamp": "2026-01-01"
 			},
 			{
 				"name": "geminiAPI",
 				"package": "me.naming_assistant.naming_assistant.cli",
 				"description": "GeminiのAPIに作るプロンプトを作り、送る",
-				"timestamp": "2051228"
+				"timestamp": "2025-12-28"
 			}
 		]
 	}
