@@ -10,7 +10,7 @@ import com.google.genai.types.Schema;
 
 public class GeminiClient {
 
-    public String geminiAPI(String target, String content) {
+    public String geminiAPI(String target,String packageName, String content) {
         String targetLanguage = "Java"; // ファイル拡張子から判定（仮）
 
         // 1. プロンプトの作成
@@ -23,6 +23,7 @@ public class GeminiClient {
                 【情報】
                 対象言語: %s
                 命名対象: %s
+                パッケージ: %s
                 処理内容: %s
                 
                 【制約】
@@ -31,6 +32,7 @@ public class GeminiClient {
                 """,
                 targetLanguage,
                 target,
+                packageName,
                 content);
 
         // 2. スキーマ（構造）の定義

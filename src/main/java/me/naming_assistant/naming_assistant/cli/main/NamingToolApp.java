@@ -7,7 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
 import me.naming_assistant.naming_assistant.cli.json.JacksonConfig;
-import me.naming_assistant.naming_assistant.cli.naming.NamingMain;
+import me.naming_assistant.naming_assistant.cli.json.WriteJson;
+import me.naming_assistant.naming_assistant.cli.naming.NamingInput;
 
 public class NamingToolApp {
 	
@@ -18,7 +19,8 @@ public class NamingToolApp {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 
 			NamingContext nc = new NamingContext();
-			NamingMain nm = new NamingMain();
+			NamingInput ni = new NamingInput();
+			WriteJson wr = new WriteJson();
 			ObjectMapper mapper = JacksonConfig.createObjectMapper();
 			String projectName;
 			String userChoice;
@@ -45,7 +47,7 @@ public class NamingToolApp {
 				switch(userChoice) {
 					case "1": 
 						System.out.println("\nAPIを利用して命名する\n");
-						nm.namingMain(nc, br, mapper);
+						ni.namingInput(nc, br, mapper);
 						break;
 					case "2":
 						System.out.println("\nこの処理は未実装です。");
@@ -54,6 +56,10 @@ public class NamingToolApp {
 						System.out.println("\nこの処理は未実装です。");
 						break;
 					case "4":
+						System.out.println("\n最終的なJsonファイルを出力します");
+						System.out.println("出力先はuser/home/.naming-assistantです");
+						wr.writeNamedDataToJson(nc);
+						
 						System.out.println("\nこのツールを終了します。");
 						System.exit(0);
 					default:

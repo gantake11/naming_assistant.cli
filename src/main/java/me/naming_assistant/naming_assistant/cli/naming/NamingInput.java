@@ -2,28 +2,33 @@ package me.naming_assistant.naming_assistant.cli.naming;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import me.naming_assistant.naming_assistant.cli.dto.management.History;
 import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
 import me.naming_assistant.naming_assistant.cli.dto.response.Response;
 import me.naming_assistant.naming_assistant.cli.json.Serialize;
 
 public class NamingInput {
 	
-	public String targetLabel;
-	public Response choiseName;
-	
 	public  void namingInput(NamingContext nc, BufferedReader br, ObjectMapper mapper) {
-		// try-with-resources で BufferedReader を確実に閉じる
+		
+		History history = new History();
+		
 		try {
 
 			GeminiClient gc = new GeminiClient();
 			Serialize se = new Serialize();
+			InputDto id = new InputDto();
 			List<Response> responses;
 			String targetInput;
-			String content;
+			String targetLabel;
+			String choiseName;
+			String packageName;
+			String description;
 			String output;
 			int userChoise = 0;
 
@@ -35,7 +40,7 @@ public class NamingInput {
 
 			
 				// 入力された数値を言葉に変換
-				this.targetLabel = switch (targetInput) {
+				targetLabel = switch (targetInput) {
 				case "0" -> "インタフェース";
 				case "1" -> "クラス";
 				case "2" -> "変数";
@@ -43,14 +48,19 @@ public class NamingInput {
 				case "4" -> "メソッド";
 				default -> "識別子"; // 予期せぬ入力への備え
 				};
-				if (this.targetLabel != "識別子") {
+				if (targetLabel != "識別子") {
 					break;
 				}
 			}
+			
+			System.out.print("パッケージ：");
+			packageName = br.readLine();
+			history.setPackageName(packageName);
 
 			// 2. 処理内容の入力
 			System.out.print("どんな処理をするものですか？（例：ユーザー登録をする）：");
-			content = br.readLine();
+			description = br.readLine();
+			history.setDescription(description);
 
 			// 3. (発展) 本来ならここでファイルを読み込んで既存名を取得する
 			// 今回は一旦空のリスト、または仮の文字列を渡す想定
@@ -62,7 +72,7 @@ public class NamingInput {
 				System.out.println("\nGeminiに問い合わせ中...");
 
 				// GeminiClientのメソッドを呼び出し（引数は設計に合わせて調整してください）
-				output = gc.geminiAPI(this.targetLabel, content);
+				output = gc.geminiAPI(targetLabel,packageName, description);
 				responses = se.serialize(mapper, output);
 				
 				System.out.println("\n--- Geminiの提案 ---");
@@ -82,9 +92,12 @@ public class NamingInput {
 
 						try {
 							userChoise = Integer.parseInt(br.readLine());
-							this.choiseName = responses.get(userChoise);
+							choiseName = responses.get(userChoise -1).getName();
 							
 							if(userChoise > 0 && userChoise < 4) {
+								history.setName(choiseName);
+								LocalDate today = LocalDate.now();
+								history.setTimestamp(today);
 								break;
 							} else {
 								System.out.println("\n1～3を入力してください\n");
@@ -93,7 +106,6 @@ public class NamingInput {
 							System.out.println("\n1～3を入力してください\n");
 						}
 					}
-
 					break;
 				} else if (userDecision.trim().equals("いいえ")) {
 					continue;
@@ -101,6 +113,8 @@ public class NamingInput {
 					System.out.println("\nはい か いいえ を入力してください\n");
 				}
 			}
+			
+			id.inputDto(nc, targetLabel, history);
 
 		} catch (IOException e) {
 			System.err.println("入力エラーが発生しました: " + e.getMessage());
