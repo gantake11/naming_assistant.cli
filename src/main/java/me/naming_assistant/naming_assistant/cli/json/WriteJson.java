@@ -8,17 +8,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
 
-public class JacksonDemo {
-	public static void main(String[] args) throws Exception {
+public class WriteJson {
+	public void writeNamedDataToJson(NamingContext nc) throws Exception {
+		
+		String projectName = nc.getProjectName();
+		
 		ObjectMapper mapper = JacksonConfig.createObjectMapper();
 		// オブジェクトからJSONへの変換（シリアライズ）
-		NamingContext nc = new NamingContext();
 		String json = mapper.writeValueAsString(nc);
 		System.out.println("シリアライズ結果:");
 		System.out.println(json);
 
 		Path configDirPath = Paths.get(System.getProperty("user.home"), ".naming-assistant");
-		Path filePath = configDirPath.resolve("naming-context.json");
+		Path filePath = configDirPath.resolve(projectName + ".json");
 
 		Files.createDirectories(configDirPath);
 
