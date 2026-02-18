@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
 import me.naming_assistant.naming_assistant.cli.json.JacksonConfig;
-import me.naming_assistant.naming_assistant.cli.json.WriteJson;
+import me.naming_assistant.naming_assistant.cli.json.JsonManager;
 import me.naming_assistant.naming_assistant.cli.naming.NamingInput;
 
 public class NamingToolApp {
@@ -20,7 +20,7 @@ public class NamingToolApp {
 
 			NamingContext nc = new NamingContext();
 			NamingInput ni = new NamingInput();
-			WriteJson wr = new WriteJson();
+			JsonManager wr = new JsonManager();
 			ObjectMapper mapper = JacksonConfig.createObjectMapper();
 			String projectName;
 			String userChoice;
@@ -56,9 +56,11 @@ public class NamingToolApp {
 						System.out.println("\nこの処理は未実装です。");
 						break;
 					case "4":
+						System.out.println("Json結果");
+						System.out.println(mapper.writeValueAsString(nc));
 						System.out.println("\n最終的なJsonファイルを出力します");
 						System.out.println("出力先はuser/home/.naming-assistantです");
-						wr.writeNamedDataToJson(nc);
+						wr.saveToFile(nc, mapper);
 						
 						System.out.println("\nこのツールを終了します。");
 						System.exit(0);
@@ -67,6 +69,9 @@ public class NamingToolApp {
 						break;
 					
 				}
+				
+				System.out.println("Json結果");
+				System.out.println(mapper.writeValueAsString(nc));
 			}
 
 		} catch (Exception e) {

@@ -9,11 +9,11 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 
 import me.naming_assistant.naming_assistant.cli.dto.response.Response;
 
-public class Serialize {
+public class Deserialize {
 	
 	public List<Response> apiResponses = null;
 	
-	public List<Response> serialize(ObjectMapper mapper, String json) {
+	public List<Response> deserialize(ObjectMapper mapper, String json) {
 		
 		try {
 			TypeFactory typeFactory = mapper.getTypeFactory();

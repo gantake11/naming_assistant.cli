@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import me.naming_assistant.naming_assistant.cli.dto.management.History;
 import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
 import me.naming_assistant.naming_assistant.cli.dto.response.Response;
-import me.naming_assistant.naming_assistant.cli.json.Serialize;
+import me.naming_assistant.naming_assistant.cli.json.Deserialize;
 
 public class NamingInput {
 	
@@ -21,7 +21,7 @@ public class NamingInput {
 		try {
 
 			GeminiClient gc = new GeminiClient();
-			Serialize se = new Serialize();
+			Deserialize se = new Deserialize();
 			InputDto id = new InputDto();
 			List<Response> responses;
 			String targetInput;
@@ -72,8 +72,8 @@ public class NamingInput {
 				System.out.println("\nGeminiに問い合わせ中...");
 
 				// GeminiClientのメソッドを呼び出し（引数は設計に合わせて調整してください）
-				output = gc.geminiAPI(targetLabel,packageName, description);
-				responses = se.serialize(mapper, output);
+				output = gc.geminiAPI(targetLabel,packageName, description, nc, mapper);
+				responses = se.deserialize(mapper, output);
 				
 				System.out.println("\n--- Geminiの提案 ---");
 				for (Response response : responses) {
