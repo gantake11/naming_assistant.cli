@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
 import me.naming_assistant.naming_assistant.cli.json.JacksonConfig;
 import me.naming_assistant.naming_assistant.cli.json.JsonManager;
+import me.naming_assistant.naming_assistant.cli.json.Serialize;
 import me.naming_assistant.naming_assistant.cli.naming.NamingInput;
 
 public class NamingToolApp {
@@ -21,6 +22,7 @@ public class NamingToolApp {
 			NamingContext nc = new NamingContext();
 			NamingInput ni = new NamingInput();
 			JsonManager wr = new JsonManager();
+			Serialize se = new Serialize();
 			ObjectMapper mapper = JacksonConfig.createObjectMapper();
 			String projectName;
 			String userChoice;
@@ -53,7 +55,8 @@ public class NamingToolApp {
 						System.out.println("\nこの処理は未実装です。");
 						break;
 					case "3":
-						System.out.println("\nこの処理は未実装です。");
+						System.out.println("\nJsonファイルを受け取ってオブジェクトに変換する");
+						se.serialize(br, nc, mapper, wr, se);
 						break;
 					case "4":
 						System.out.println("Json結果");
