@@ -6,11 +6,12 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import me.naming_assistant.naming_assistant.cli.NamingToolApp;
 import me.naming_assistant.naming_assistant.cli.dto.management.History;
 import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
 
 public class Serialize {
-	public void serialize(BufferedReader br, NamingContext nc, ObjectMapper mapper, JsonManager wr, Serialize se) {
+	public void serialize(BufferedReader br, ObjectMapper mapper, JsonManager wr, Serialize se) {
 		
 		System.out.println("入力するjsonファイルのパスを入力してください。");
 		System.out.print("パス：");
@@ -19,9 +20,9 @@ public class Serialize {
 
 			NamingContext ncInput = mapper.readValue(new File(path), NamingContext.class);
 
-			if (nc.getProjectName().equals(ncInput.getProjectName())) {
+			if (NamingToolApp.nc.getProjectName().equals(ncInput.getProjectName())) {
 				// ncInputにある名前を追加する
-				se.processNameArrays(nc, ncInput);
+				se.processNameArrays(NamingToolApp.nc, ncInput);
 				System.out.println("\n入力されたJsonファイルをオブジェクトに変換しました");
 			} else {
 				while (true) {
@@ -30,11 +31,11 @@ public class Serialize {
 					String overwriteAnswer = br.readLine();
 					if (overwriteAnswer.equals("はい")) {
 						System.out.println("\n前回のプロジェクトのJsonファイルを出力します");
-						wr.saveToFile(nc, mapper);
+						wr.saveToFile(mapper);
 
-						nc = new NamingContext();
-						nc.setProjectName(ncInput.getProjectName());
-						nc = se.processNameArrays(nc, ncInput);
+						NamingToolApp.nc = new NamingContext();
+						NamingToolApp.nc.setProjectName(ncInput.getProjectName());
+						NamingToolApp.nc = se.processNameArrays(NamingToolApp.nc, ncInput);
 						System.out.println("\n入力されたJsonファイルをオブジェクトに変換しました");
 					} else if (overwriteAnswer.equals("いいえ")) {
 						System.out.println("やりたいことの選択に戻ります");

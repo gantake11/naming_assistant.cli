@@ -10,12 +10,11 @@ import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
 import com.google.genai.types.Schema;
 
-import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
+import me.naming_assistant.naming_assistant.cli.NamingToolApp;
 
 public class GeminiClient {
 
-	public String geminiAPI(String target, String packageName, String content, NamingContext nc, ObjectMapper mapper) {
-		String targetLanguage = "Java"; // ファイル拡張子から判定（仮）
+	public String geminiAPI(String target, String packageName, String content, ObjectMapper mapper) {
 
 		// 1. プロンプトの作成
 		// JSONの形式指示は削除し、命名のロジックのみを記述します
@@ -40,7 +39,7 @@ public class GeminiClient {
 					・コンテキスト内の "histories" にある既存名称と重複しないこと。
 					・出力は指定されたJSONスキーマに従うこと。
 					""",
-					mapper.writeValueAsString(nc), // ここにJSON文字列がドカンと入ります
+					mapper.writeValueAsString(NamingToolApp.nc), // ここにJSON文字列がドカンと入ります
 					target, // 今回命名したい対象（例: "設定ファイルを読み込むクラス"）
 					content // 処理内容の説明
 			);

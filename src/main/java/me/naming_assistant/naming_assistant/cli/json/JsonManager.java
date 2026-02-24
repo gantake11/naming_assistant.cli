@@ -6,12 +6,12 @@ import java.nio.file.Paths;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import me.naming_assistant.naming_assistant.cli.dto.management.NamingContext;
+import me.naming_assistant.naming_assistant.cli.NamingToolApp;
 
 public class JsonManager {
 	
-    public void saveToFile(NamingContext nc, ObjectMapper mapper) throws Exception {
-        String projectName = nc.getProjectName();
+    public void saveToFile(ObjectMapper mapper) throws Exception {
+        String projectName = NamingToolApp.nc.getProjectName();
         
         
         Path configDirPath = Paths.get(System.getProperty("user.home"), ".naming-assistant");
@@ -19,6 +19,6 @@ public class JsonManager {
         Files.createDirectories(configDirPath);
 
         // ファイル書き込みだけを行う（System.out.printlnなどは消してスッキリさせる）
-        mapper.writeValue(filePath.toFile(), nc);
+        mapper.writeValue(filePath.toFile(), NamingToolApp.nc);
     }
 }

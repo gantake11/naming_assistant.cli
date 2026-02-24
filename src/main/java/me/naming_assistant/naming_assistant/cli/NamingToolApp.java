@@ -1,4 +1,4 @@
-package me.naming_assistant.naming_assistant.cli.main;
+package me.naming_assistant.naming_assistant.cli;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,22 +10,24 @@ import me.naming_assistant.naming_assistant.cli.json.JacksonConfig;
 import me.naming_assistant.naming_assistant.cli.json.JsonManager;
 import me.naming_assistant.naming_assistant.cli.json.Serialize;
 import me.naming_assistant.naming_assistant.cli.naming.NamingInput;
+import me.naming_assistant.naming_assistant.cli.paser.CodeAnalyzer;
 
 public class NamingToolApp {
 	
-	
+	public static NamingContext nc = new NamingContext();
 
 	public static void main(String[] args) {
 		
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 
-			NamingContext nc = new NamingContext();
 			NamingInput ni = new NamingInput();
+			CodeAnalyzer ca = new CodeAnalyzer();
 			JsonManager wr = new JsonManager();
 			Serialize se = new Serialize();
 			ObjectMapper mapper = JacksonConfig.createObjectMapper();
 			String projectName;
 			String userChoice;
+			String path;
 
 			System.out.println("=== 命名アシスタントツール ===");
 			System.out.println("Javaのプロジェクトの命名を支援します。\n");
@@ -49,21 +51,25 @@ public class NamingToolApp {
 				switch(userChoice) {
 					case "1": 
 						System.out.println("\nAPIを利用して命名する\n");
-						ni.namingInput(nc, br, mapper);
+						ni.namingInput(br, mapper);
 						break;
 					case "2":
-						System.out.println("\nこの処理は未実装です。");
+						System.out.println("\nプログラムを読み込み、名前を抽出する");
+						System.out.println("抽出対象のJavaファイルのパスを入力してください");
+						System.out.print("パス：");
+						path = br.readLine();
+						ca.analyse(path);
 						break;
 					case "3":
-						System.out.println("\nJsonファイルを受け取ってオブジェクトに変換する");
-						se.serialize(br, nc, mapper, wr, se);
+						System.out.println("\nこのツールのjsonファイルを読み込む");
+						se.serialize(br, mapper, wr, se);
 						break;
 					case "4":
 						System.out.println("Json結果");
 						System.out.println(mapper.writeValueAsString(nc));
 						System.out.println("\n最終的なJsonファイルを出力します");
-						System.out.println("出力先はuser/home/.naming-assistantです");
-						wr.saveToFile(nc, mapper);
+						System.out.println("出力先はuser/home/.naming-assistant/" + projectName + "です");
+						wr.saveToFile(mapper);
 						
 						System.out.println("\nこのツールを終了します。");
 						System.exit(0);
